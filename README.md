@@ -12,7 +12,7 @@ The really nice article about digits recognition with opencv and python is [here
 # Installation
 For installation opencv I follow [this](https://yoursunny.com/t/2018/install-OpenCV3-PiZero/) instructions.
 
-'''
+```javascript
 #Enable my Pi Zero repository:
 echo 'deb [trusted=yes] http://dl.bintray.com/yoursunny/PiZero stretch-backports main' |\
   sudo tee  /etc/apt/sources.list.d/bintray-yoursunny-PiZero.list
@@ -29,4 +29,4 @@ python3 -c 'import cv2; print(cv2.__version__)'
 
 #It'll take around 30 seconds, and then you should see:
 #3.2.0
-'''
+```
