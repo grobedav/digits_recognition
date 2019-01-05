@@ -27,6 +27,36 @@ sudo apt install python3-opencv
 #Verify the installation:
 python3 -c 'import cv2; print(cv2.__version__)'
 
-#It'll take around 30 seconds, and then you should see:
+#It will take around 30 seconds, and then you should see:
 #3.2.0
 ```
+After that I installed 
+```
+sudo apt-get install libatlas-base-dev
+sudo pip3 install scipy
+sudo pip3 install imutils
+```
+
+# Run
+
+```
+python3 capture_digits.py
+```
+
+Results should be look similar this
+
+```
+# segments recognition
+[1, 1, 1, 1, 0, 1, 1]
+[1, 1, 1, 1, 1, 1, 1]
+[1, 0, 1, 1, 1, 0, 1]
+[1, 1, 1, 0, 1, 1, 1]
+[1, 1, 1, 0, 1, 1, 1]
+[1, 1, 1, 0, 1, 1, 1]
+[1, 1, 1, 0, 1, 1, 0]
+
+# digits recognition
+[9, 8, 2, 0, 0, 0, 0]
+```
+
+
