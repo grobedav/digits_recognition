@@ -4,7 +4,7 @@ I installed at my home the heat pump. This kind of device consumes some electric
 The really nice article about digits recognition with opencv and python is [here](https://www.pyimagesearch.com/2017/02/13/recognizing-digits-with-opencv-and-python/). The article inspired me a lot and I only modified the described code to fit to my project.
 ## Physical Setup
 <p align="left"> <img title="electricity meter" src="images/image001.jpg" alt="electricity meter"></p>
-<p align="left"> <img title="front view installation of picamera and rpi Zero W" src="images/IMG-3602.JPG" alt="front view installation of picamera and rpi Zero W"></p>
-<p align="left"> <img title="side view installation of picamera and rpi Zero W" src="images/IMG-3602.JPG" alt="side view installation of picamera and rpi Zero W"></p>
+<p align="left"> <img title="front view installation of picamera and rpi Zero W" src="images/IMG_3602.jpg" alt="front view installation of picamera and rpi Zero W"></p>
+<p align="left"> <img title="side view installation of picamera and rpi Zero W" src="images/IMG-3604.jpg" alt="side view installation of picamera and rpi Zero W"></p>
 <p align="left"> <img title="pic from picamera" src="images/test6.jpg" alt="pic from picamera"></p>
 # Installation
