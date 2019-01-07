@@ -79,6 +79,33 @@ net:
 ```
 For add new user to mongodb Follow [these](https://docs.mongodb.com/manual/reference/method/db.createUser/#db.createUser) instractions
 
+Install python library pymongo for CRUD operations
+```
+sudo pip3 install pymongo
+```
+Nice tutorial is [here](https://www.mongodb.com/blog/post/getting-started-with-python-and-mongodb)
+
+My Mongo client for storing necessery data looks like this
+```
+try:
+	client = MongoClient('mongodb://x.xxx.xxx.xx:27017',
+                     username = credentials[0][0],
+                      password = credentials[0][1],
+                      authSource = 'home',
+                      authMechanism = 'SCRAM-SHA-1')
+	timestamp = time.time()
+	energy = {
+        	'T1' : t1,
+        	'T2' : t2,
+        	'timestamp' : timestamp
+	}
+
+	db = client.home
+	result = db.energy.insert_one(energy)
+finally:
+	client.close()
+```
+
 # Run
 
 ```
