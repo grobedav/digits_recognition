@@ -64,6 +64,7 @@ def display_segments_to_number(thresh):
 	# number of the meter digits
 	digitCnts = [1,2,3,4,5,6,7]
 	digits = []
+        number = 0
 
 	# loop over each of the digits
 
@@ -74,7 +75,7 @@ def display_segments_to_number(thresh):
 		y = 10 + int(0.05 * hh)
 		x = ww - c * int(0.024 * ww + w)
 		roi = thresh[y:y + h, x:x + w]
-		number = 0
+		
 		# compute the width and height of each of the 7 segments
 		# we are going to examine
 		(roiH, roiW) = roi.shape
