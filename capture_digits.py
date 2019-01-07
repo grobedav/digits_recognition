@@ -33,7 +33,7 @@ camera.stop_preview()
 camera.close()
 
 # read credentials
-with open('mongodb_credentials.txt') as f:
+with open('/home/pi/power_meter/digits_recognition/mongodb_credentials.txt') as f:
     credentials = [x.strip().split(':') for x in f.readlines()]
 # write display results to db
 try:
