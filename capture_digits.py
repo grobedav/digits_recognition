@@ -3,7 +3,7 @@ from time import sleep
 from picamera import PiCamera
 import image_to_number as i2n
 # Create an in-memory stream
-my_stream = BytesIO()
+
 camera = PiCamera()
 camera.resolution = (1024, 768)
 camera.rotation = 180
@@ -16,6 +16,7 @@ t1 = 0
 t2 = 0
 # Take each frame
 while t1 == 0 or t2 == 0:
+	my_stream = BytesIO()
 	camera.capture(my_stream, 'jpeg')
 	number = i2n.stream_to_number(my_stream)
 	sleep(8)
