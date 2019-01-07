@@ -15,7 +15,7 @@ sleep(2)
 t1 = 0
 t2 = 0
 # Take each frame
-while t1 = 0 or t2 = 0:
+while t1 == 0 or t2 == 0:
 	camera.capture(my_stream, 'jpeg')
 	number = i2n.stream_to_number(my_stream)
 	sleep(8)
