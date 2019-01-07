@@ -17,7 +17,7 @@ sleep(2)
 t1 = 0
 t2 = 0
 # Take each tarif frame from electricity meter
-while t1 == 0 and t2 == 0:
+while t1 == 0 or t2 == 0 or t1 == t2:
 	my_stream = BytesIO()
 	camera.capture(my_stream, 'jpeg')
 	number = i2n.stream_to_number(my_stream)
