@@ -20,13 +20,14 @@ while t1 = 0 or t2 = 0:
 	number = i2n.stream_to_number(my_stream)
 	sleep(8)
 	if number > 1:
-		if number > t1:
-			t2 = t1
-			t1 = number
+		if number > t2:
+			t1 = t2
+			t2 = number
 		else: 
-			t2 = number	
+			t1 = number	
 			
-print(number)
+print(t1)
+print(t2)
 
 camera.stop_preview()
 camera.close()
