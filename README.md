@@ -77,7 +77,7 @@ net:
   port: 27017
   bindIpAll: true  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the net.bindIpAll setting.
 ```
-For add new user to mongodb Follow [these](https://docs.mongodb.com/manual/reference/method/db.createUser/#db.createUser) instractions
+For add new user to mongodb Follow [these](https://docs.mongodb.com/manual/reference/method/db.createUser/#db.createUser) instructions
 
 Install python library pymongo for CRUD operations
 ```
@@ -85,7 +85,7 @@ sudo pip3 install pymongo
 ```
 Nice tutorial is [here](https://www.mongodb.com/blog/post/getting-started-with-python-and-mongodb)
 
-My Mongo client for storing necessery data looks like this
+My Mongo client for storing necessary data looks like this
 ```
 try:
 	client = MongoClient('mongodb://x.xxx.xxx.xx:27017',
