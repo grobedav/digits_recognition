@@ -64,7 +64,7 @@ def display_segments_to_number(thresh):
 	# number of the meter digits
 	digitCnts = [1,2,3,4,5,6,7]
 	digits = []
-        number = 0
+	number = 0
 
 	# loop over each of the digits
 
