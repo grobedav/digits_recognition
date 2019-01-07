@@ -17,7 +17,7 @@ sleep(2)
 t1 = 0
 t2 = 0
 # Take each tarif frame from electricity meter
-while t1 == 0 or t2 == 0:
+while t1 == 0 and t2 == 0:
 	my_stream = BytesIO()
 	camera.capture(my_stream, 'jpeg')
 	number = i2n.stream_to_number(my_stream)
@@ -37,7 +37,7 @@ with open('/home/pi/power_meter/digits_recognition/mongodb_credentials.txt') as 
     credentials = [x.strip().split(':') for x in f.readlines()]
 # write display results to db
 try:
-	client = MongoClient('mongodb://5.189.174.89:27017',
+	client = MongoClient('mongodb://' + credentials[0][2] +':27017',
                      username = credentials[0][0],
                       password = credentials[0][1],
                       authSource = 'home',
