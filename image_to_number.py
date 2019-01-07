@@ -117,7 +117,7 @@ def display_segments_to_number(thresh):
 			digit = DIGITS_LOOKUP[tuple(on)]
 			digits.append(digit)
 			number += digit * 10 ** (c - 1)
-		return number
+	return number
 
 def stream_to_number(my_stream):
 	try:
