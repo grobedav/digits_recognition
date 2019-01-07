@@ -1,5 +1,6 @@
 from io import BytesIO
 from time import sleep
+import time
 from picamera import PiCamera
 from pymongo import MongoClient
 import image_to_number as i2n
@@ -35,20 +36,23 @@ camera.close()
 with open('mongodb_credentials.txt') as f:
     credentials = [x.strip().split(':') for x in f.readlines()]
 # write display results to db
-client = MongoClient('mongodb://5.189.174.89:27017',
+try:
+	client = MongoClient('mongodb://5.189.174.89:27017',
                      username = credentials[0][0],
                       password = credentials[0][1],
                       authSource = 'home',
                       authMechanism = 'SCRAM-SHA-1')
-timestamp = time.time()
-energy = {
-        'T1' : t1,
-        'T2' : t2,
-        'timestamp' : timestamp
-}
+	timestamp = time.time()
+	energy = {
+        	'T1' : t1,
+        	'T2' : t2,
+        	'timestamp' : timestamp
+	}
 
-db = client.home
-result = db.energy.insert_one(energy)
+	db = client.home
+	result = db.energy.insert_one(energy)
+finally:
+	client.close()
 
 
 
