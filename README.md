@@ -105,6 +105,29 @@ try:
 finally:
 	client.close()
 ```
+## CRON
+I want to store current values to mongodb every 15 minutes
+```
+crontab -e
+```
+This command open the file with scheduler
+Write this similar schedule to the file with right path
+
+```
+*/15 * * * *    python3 ~/power_meter/digits_recognition/capture_digits.py
+```
+For cron trouble shooting use
+```
+grep CRON /var/log/syslog
+```
+You should have installed postfix for more info about issue
+```
+sudo aptitude install postfix
+```
+Look here after postfix is correctly set up
+```
+sudo tail -f /var/mail/<user>
+```
 
 # Run
 
