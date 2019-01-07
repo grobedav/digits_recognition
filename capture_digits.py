@@ -10,11 +10,22 @@ camera.rotation = 180
 camera.start_preview()
 # Camera warm-up time
 sleep(2)
-camera.capture(my_stream, 'jpeg')
 
 
+t1 = 0
+t2 = 0
 # Take each frame
-number = i2n.stream_to_number(my_stream) 
+while t1 = 0 or t2 = 0:
+	camera.capture(my_stream, 'jpeg')
+	number = i2n.stream_to_number(my_stream)
+	sleep(8)
+	if number > 1:
+		if number > t1:
+			t2 = t1
+			t1 = number
+		else: 
+			t2 = number	
+			
 print(number)
 
 camera.stop_preview()
