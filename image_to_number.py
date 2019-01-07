@@ -1,4 +1,3 @@
-
 from time import sleep
 import cv2
 import numpy as np
@@ -56,7 +55,7 @@ def found_display_contour(gray):
                 localMax = cv2.contourArea(approx)
 
                 if maximumArea < localMax:
-                        aximumArea = localMax
+                        maximumArea = localMax
                         displayCnt = approx
         return displayCnt
 
