@@ -77,7 +77,57 @@ net:
   port: 27017
   bindIpAll: true  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the net.bindIpAll setting.
 ```
-For add new user to mongodb Follow [these](https://docs.mongodb.com/manual/reference/method/db.createUser/#db.createUser) instractions
+For add new user to mongodb Follow [these](https://docs.mongodb.com/manual/reference/method/db.createUser/#db.createUser) instructions
+
+Install python library pymongo for CRUD operations
+```
+sudo pip3 install pymongo
+```
+Nice tutorial is [here](https://www.mongodb.com/blog/post/getting-started-with-python-and-mongodb)
+
+My Mongo client for storing necessary data looks like this
+```
+try:
+	client = MongoClient('mongodb://x.xxx.xxx.xx:27017',
+                     username = credentials[0][0],
+                      password = credentials[0][1],
+                      authSource = 'home',
+                      authMechanism = 'SCRAM-SHA-1')
+	timestamp = time.time()
+	energy = {
+        	'T1' : t1,
+        	'T2' : t2,
+        	'timestamp' : timestamp
+	}
+
+	db = client.home
+	result = db.energy.insert_one(energy)
+finally:
+	client.close()
+```
+## CRON
+I want to store current values to mongodb every 15 minutes
+```
+crontab -e
+```
+This command open the file with scheduler
+Write this similar schedule to the file with right path
+
+```
+*/15 * * * *    python3 ~/power_meter/digits_recognition/capture_digits.py
+```
+For cron trouble shooting use
+```
+grep CRON /var/log/syslog
+```
+You should have installed postfix for more info about issue
+```
+sudo aptitude install postfix
+```
+Look here after postfix is correctly set up
+```
+sudo tail -f /var/mail/<user>
+```
 
 # Run
 
