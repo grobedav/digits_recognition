@@ -1,6 +1,7 @@
 from io import BytesIO
 from time import sleep
 from picamera import PiCamera
+from pymongo import MongoClient
 import image_to_number as i2n
 # Create an in-memory stream
 
@@ -14,7 +15,7 @@ sleep(2)
 
 t1 = 0
 t2 = 0
-# Take each frame
+# Take each tarif frame from electricity meter
 while t1 == 0 or t2 == 0:
 	my_stream = BytesIO()
 	camera.capture(my_stream, 'jpeg')
@@ -27,8 +28,30 @@ while t1 == 0 or t2 == 0:
 		else: 
 			t1 = number	
 			
-print(t1)
-print(t2)
-
 camera.stop_preview()
 camera.close()
+
+# read credentials
+with open('mongodb_credentials.txt') as f:
+    credentials = [x.strip().split(':') for x in f.readlines()]
+# write display results to db
+client = MongoClient('mongodb://5.189.174.89:27017',
+                     username = credentials[0][0],
+                      password = credentials[0][1],
+                      authSource = 'home',
+                      authMechanism = 'SCRAM-SHA-1')
+timestamp = time.time()
+energy = {
+        'T1' : t1,
+        'T2' : t2,
+        'timestamp' : timestamp
+}
+
+db = client.home
+result = db.energy.insert_one(energy)
+
+
+
+
+
+
