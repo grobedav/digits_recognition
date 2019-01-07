@@ -15,7 +15,7 @@ camera.capture(my_stream, 'jpeg')
 
 # Take each frame
 number = i2n.stream_to_number(my_stream) 
-print number
+print(number)
 
 camera.stop_preview()
 camera.close()
