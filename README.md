@@ -9,8 +9,68 @@ The really nice article about digits recognition with opencv and python is [here
 <p align="left"> <img title="side view installation of picamera and rpi Zero W" src="images/IMG_3602.jpg" alt="side view installation of picamera and rpi Zero W"></p>
 <p align="left"> <img title="pic from picamera" src="images/test6.jpg" alt="pic from picamera"></p>
 
-# Installation
+# Upgrade
 
+I started use optical electricity meter reader for reading energy values from electricity meter.
+I am using serial communication between reader and electricity meter according to norm ČSN EN IEC 62056-8-4.
+Thats mean that I am not using CAMERA picture parsing anymore. But I like Camera solution because it is cheaper and interesting. So I am keeping the information about that also here.
+
+# Installation
+## --- Optical electricity meter ---
+Main script which I am using now is called 
+'''
+usb.py
+'''
+So I am using python 3.9.1.
+Guide is from https://webcache.googleusercontent.com/search?q=cache:8M8wBAk5bEIJ:https://installvirtual.com/how-to-install-python-3-8-on-raspberry-pi-raspbian/+&cd=1&hl=cs&ct=clnk&gl=cz
+'''
+Download
+wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz
+
+Extract and install
+sudo tar zxf Python-3.9.1.tgz
+cd Python-3.9.1
+sudo ./configure --enable-optimizations
+sudo make -j 4
+sudo make altinstall
+
+Make as default
+echo "alias python=/usr/local/bin/python3.9" >> ~/.bashrc
+source ~/.bashrc
+'''
+
+Install and upgrade pip
+'''
+python -m pip install --upgrade pip
+'''
+
+Install virtual env
+'''
+pip install virtualenv
+'''
+
+Create virtual env
+'''
+virtualenv venv
+'''
+
+Activate virtual env
+'''
+source mypython/bin/activate
+'''
+
+Install necessary libraries
+'''
+pip install pyserial
+pip install flask
+pip install apscheduler
+'''
+
+
+
+
+
+## --- Camera solution ---
 ## OpenCv and Python
 For installation opencv I followed [these](https://yoursunny.com/t/2018/install-OpenCV3-PiZero/) instructions.
 
