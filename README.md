@@ -21,6 +21,20 @@ Main script which I am using now is called
 ```
 usb.py
 ```
+This script is based on three parts. 
+Firstly
+Serial communication between reader and meter. 
+I started 7 bit, even parity, 300 baud serial communication. The serial request is sent and response is parsed and stored in the memory.
+Secondly
+Background time period scheduler is used because IR receiver/transmitter communication takes some time to have data available.
+Thirdly
+Flask library for creation HTTP REST service. REST service can be read with any other application for results visualisation.
+```
+curl http://192.168.0.100:5000/electricity_meter/api/v1.0/energy
+{"energy":{"highTarif":"0004200.177","lowTarif":"0021209.409","suma":"0025409.587"}}
+
+```
+
 I am using python 3.9.1.
 
 Guide is from 
@@ -60,7 +74,7 @@ virtualenv venv
 
 Activate virtual env
 ```
-source mypython/bin/activate
+source venv/bin/activate
 ```
 
 Install necessary libraries
