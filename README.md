@@ -23,7 +23,9 @@ usb.py
 ```
 I am using python 3.9.1.
 
-Guide is from https://webcache.googleusercontent.com/search?q=cache:8M8wBAk5bEIJ:https://installvirtual.com/how-to-install-python-3-8-on-raspberry-pi-raspbian/+&cd=1&hl=cs&ct=clnk&gl=cz
+Guide is from 
+
+https://webcache.googleusercontent.com/search?q=cache:8M8wBAk5bEIJ:https://installvirtual.com/how-to-install-python-3-8-on-raspberry-pi-raspbian/+&cd=1&hl=cs&ct=clnk&gl=cz
 
 ```
 #Download
@@ -68,8 +70,29 @@ pip install pyserial
 pip install flask
 pip install apscheduler
 ```
+Create system service
+```
+sudo nano optical_sensor.service
+```
 
+```
+[Unit]
+Description=Optical Sensor Service
 
+[Service]
+User=pi
+WorkingDirectory=/home/pi/power_meter
+ExecStart=/home/pi/power_meter/usb.py
+
+[Install]
+WantedBy=multi-user.target
+```
+Enable Service
+```
+sudo systemctl daemon-reload
+sudo systemctl enable optical_sensor.service
+sudo systemctl start optical_sensor.service
+```
 
 
 
