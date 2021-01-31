@@ -16,55 +16,58 @@ I am using serial communication between reader and electricity meter according t
 Thats mean that I am not using CAMERA picture parsing anymore. But I like Camera solution because it is cheaper and interesting. So I am keeping the information about that also here.
 
 # Installation
-## --- Optical electricity meter ---
-Main script which I am using now is called 
-'''
+## Optical electricity meter
+Main script which I am using now is called
+```
 usb.py
-'''
-So I am using python 3.9.1.
+```
+I am using python 3.9.1.
+
 Guide is from https://webcache.googleusercontent.com/search?q=cache:8M8wBAk5bEIJ:https://installvirtual.com/how-to-install-python-3-8-on-raspberry-pi-raspbian/+&cd=1&hl=cs&ct=clnk&gl=cz
-'''
-Download
+
+```
+#Download
 wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz
 
-Extract and install
+#Extract and install
 sudo tar zxf Python-3.9.1.tgz
 cd Python-3.9.1
 sudo ./configure --enable-optimizations
 sudo make -j 4
 sudo make altinstall
 
-Make as default
+#Make as default
 echo "alias python=/usr/local/bin/python3.9" >> ~/.bashrc
 source ~/.bashrc
-'''
+```
 
 Install and upgrade pip
-'''
+```
 python -m pip install --upgrade pip
-'''
+```
 
 Install virtual env
-'''
+```
 pip install virtualenv
-'''
+```
 
 Create virtual env
-'''
+```
 virtualenv venv
-'''
+```
 
 Activate virtual env
-'''
+```
 source mypython/bin/activate
-'''
+```
 
 Install necessary libraries
-'''
+
+```
 pip install pyserial
 pip install flask
 pip install apscheduler
-'''
+```
 
 
 
