@@ -107,8 +107,17 @@ sudo systemctl daemon-reload
 sudo systemctl enable optical_sensor.service
 sudo systemctl start optical_sensor.service
 ```
-### CRON
+### Save values to ElasticSearch index
+Every  30 minutes is readed elecrical energy values from api and are saved to elastic search.
 ```
+run.sh
+#!/bin/bash
+data=$(curl -X GET http://192.168.0.100:5000/electricity_meter/api/v1.0/energy)
+curl -XPOST "http://192.168.0.80:9200/electrical_energy/_doc?pretty" -H 'Content-Type: application/json' -d "$data"
+```
+CRON
+```
+# every 30 minutes 
 */30 * * * * /usr/bin/sh /home/ubuntu/add_energy_to_elastic/run.sh
 ```
 
