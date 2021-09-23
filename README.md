@@ -107,8 +107,10 @@ sudo systemctl daemon-reload
 sudo systemctl enable optical_sensor.service
 sudo systemctl start optical_sensor.service
 ```
-
-
+### CRON
+```
+*/30 * * * * /usr/bin/sh /home/ubuntu/add_energy_to_elastic/run.sh
+```
 
 ## --- Camera solution ---
 ## OpenCv and Python
